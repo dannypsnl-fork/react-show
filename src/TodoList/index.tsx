@@ -6,9 +6,9 @@ import TodoItem from "./Todo";
 // 不一定有index跟todoStr，所以是?(optional)
 // Because we would use it as ADD or DELETE action
 type TodoAction = {
-  type: string,
-  index?: number,
-  todoStr?: string
+  type: string;
+  index?: number;
+  todoStr?: string;
 };
 // reducer 舊狀態:型別=初始狀態 action:限制
 function todocer(oldState: string[] = [], action: TodoAction): string[] {
@@ -23,7 +23,7 @@ function todocer(oldState: string[] = [], action: TodoAction): string[] {
     default:
       return oldState;
   }
-};
+}
 
 export default function TodoList() {
   const enter = 13;
@@ -37,37 +37,39 @@ export default function TodoList() {
       // clean input text after create a new todo item
       setTodoText("");
     }
-  }
+  };
   // deleteTodo is a high order function
   // receive an index, return a function listen on click event
-  let deleteTodo = (index: number) => (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    dispatch({ type: "DELETE_TODO", index: index });
-  };
+  let deleteTodo =
+    (index: number) => (_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      dispatch({ type: "DELETE_TODO", index: index });
+    };
 
   return (
     <div>
       <input
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
-        onKeyDown={(e) => e.keyCode === enter ? addTodo() : null} />
+        onKeyDown={(e) => (e.keyCode === enter ? addTodo() : null)}
+      />
       <p>Next Todo is: {todoText}</p>
       <button
         onClick={(_: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
           addTodo();
-        }}>
+        }}
+      >
         Add Todo
       </button>
       <ul>
-        {todoStore
-          .map((todoText: string, index: number) => (
-            <TodoItem
-              key={index}
-              text={todoText}
-              deleteDelegate={
-                deleteTodo(index) /*bind index and delete function*/
-              }
-            />
-          ))}
+        {todoStore.map((todoText: string, index: number) => (
+          <TodoItem
+            key={index}
+            text={todoText}
+            deleteDelegate={
+              deleteTodo(index) /*bind index and delete function*/
+            }
+          />
+        ))}
       </ul>
     </div>
   );

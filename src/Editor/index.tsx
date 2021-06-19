@@ -12,7 +12,7 @@ export default function Editor() {
         style={{
           float: "left",
           padding: "45px",
-          width: "40%"
+          width: "40%",
         }}
       >
         <textarea
@@ -28,12 +28,12 @@ export default function Editor() {
         style={{
           float: "right",
           padding: "45px",
-          width: "40%"
+          width: "40%",
         }}
         dangerouslySetInnerHTML={{
-          __html: converter.makeHtml(editString)
+          __html: converter.makeHtml(editString),
         }}
       />
     </div>
-  )
+  );
 }

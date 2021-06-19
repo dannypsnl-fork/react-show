@@ -8,18 +8,24 @@ import Editor from "./Editor";
 const Home = () => <div>Home Page</div>;
 
 const inlineStyle = {
-  display: 'inline',
-  maxWidth: '600px',
-  margin: '0 auto',
-}
+  display: "inline",
+  maxWidth: "600px",
+  margin: "0 auto",
+};
 
 const Routes = () => (
   <Router>
     <div>
       <ul>
-        <li style={inlineStyle}><Link to="/">Home</Link></li>
-        <li style={inlineStyle}><Link to="/todolist">TodoList</Link></li>
-        <li style={inlineStyle}><Link to="/editor">Editor</Link></li>
+        <li style={inlineStyle}>
+          <Link to="/">Home</Link>
+        </li>
+        <li style={inlineStyle}>
+          <Link to="/todolist">TodoList</Link>
+        </li>
+        <li style={inlineStyle}>
+          <Link to="/editor">Editor</Link>
+        </li>
       </ul>
 
       <Route exact path="/" component={Home} />
@@ -38,5 +44,5 @@ export default function App() {
       </header>
       <Routes />
     </div>
-  )
+  );
 }

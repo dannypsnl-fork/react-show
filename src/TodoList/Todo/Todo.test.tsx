@@ -13,6 +13,12 @@ describe("Component <TodoItem>", () => {
     // 提供props渲染Todo
     const output = shallow(<TodoItem text="a todo" />);
     // 預期內部所擁有的html
-    expect(output.contains(<li>a todo<button>-</button></li>)).toBe(true);
+    expect(
+      output.contains(
+        <li>
+          a todo<button>-</button>
+        </li>
+      )
+    ).toBe(true);
   });
 });
