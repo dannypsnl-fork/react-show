@@ -26,7 +26,6 @@ function todocer(oldState: string[] = [], action: TodoAction): string[] {
 }
 
 export default function TodoList() {
-  const enter = 13;
   // init todo text
   const [todoText, setTodoText] = useState("");
   const [todoStore, dispatch] = useReducer(todocer, []);
@@ -50,7 +49,7 @@ export default function TodoList() {
       <input
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
-        onKeyDown={(e) => (e.keyCode === enter ? addTodo() : null)}
+        onKeyDown={(e) => (e.key === "Enter" ? addTodo() : null)}
       />
       <p>Next Todo is: {todoText}</p>
       <button
