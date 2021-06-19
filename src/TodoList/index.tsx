@@ -46,7 +46,7 @@ export default function TodoList() {
     };
 
   return (
-    <div>
+    <>
       <input
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
@@ -71,6 +71,6 @@ export default function TodoList() {
           />
         ))}
       </ul>
-    </div>
+    </>
   );
 }

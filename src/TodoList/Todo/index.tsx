@@ -9,12 +9,10 @@ type TodoItemProps = {
 
 function TodoItem({ text, deleteDelegate }: TodoItemProps) {
   return (
-    <div>
-      <li>
-        {text}
-        <button onClick={deleteDelegate /*讓委派函數監聽此按鈕事件*/}>-</button>
-      </li>
-    </div>
+    <li>
+      {text}
+      <button onClick={deleteDelegate /*讓委派函數監聽此按鈕事件*/}>-</button>
+    </li>
   );
 }
 
