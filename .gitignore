@@ -3,6 +3,7 @@
 # build
 .cache
 dist
+*.d.ts
 
 # dependencies
 /node_modules
