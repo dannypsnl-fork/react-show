@@ -1,10 +1,10 @@
-import React, { useReducer, createContext, useContext } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 import { todocer } from "./todocer";
 
 type TodoStoreContextProps = {
   todoStore: string[];
-  addTodo: (_text: string) => void;
-  deleteTodo: (_index: number) => void;
+  addTodo: (text: string) => void;
+  deleteTodo: (index: number) => void;
 };
 
 const TodoStoreContext = createContext<Partial<TodoStoreContextProps>>({});
