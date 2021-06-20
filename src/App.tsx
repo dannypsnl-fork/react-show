@@ -15,23 +15,21 @@ const inlineStyle = {
 
 const Routes = () => (
   <Router>
-    <div>
-      <ul>
-        <li style={inlineStyle}>
-          <Link to="/">Home</Link>
-        </li>
-        <li style={inlineStyle}>
-          <Link to="/todolist">TodoList</Link>
-        </li>
-        <li style={inlineStyle}>
-          <Link to="/editor">Editor</Link>
-        </li>
-      </ul>
+    <ul>
+      <li style={inlineStyle}>
+        <Link to="/">Home</Link>
+      </li>
+      <li style={inlineStyle}>
+        <Link to="/todolist">TodoList</Link>
+      </li>
+      <li style={inlineStyle}>
+        <Link to="/editor">Editor</Link>
+      </li>
+    </ul>
 
-      <Route exact path="/" component={Home} />
-      <Route path="/editor" component={Editor} />
-      <Route path="/todolist" component={TodoList} />
-    </div>
+    <Route exact path="/" component={Home} />
+    <Route path="/editor" component={Editor} />
+    <Route path="/todolist" component={TodoList} />
   </Router>
 );
 
