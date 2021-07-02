@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import TodoItem from "./Todo";
-import TodoStoreProvider, { useTodoStore } from "./todo-hooks";
+import { todocer } from "./todocer";
 
 export default function TodoList() {
   // init todo text
   const [todoText, setTodoText] = useState("");
-  const { todoStore, addTodo } = useTodoStore();
+  const [todoStore, dispatch] = useReducer(todocer, []);
+
+  const addTodo = (text: string) =>
+    dispatch({ type: "ADD_TODO", todoStr: text });
+  const deleteTodo = (index: number) =>
+    dispatch({ type: "DELETE_TODO", index: index });
 
   // remember `addAndCleanTodo` dependent on `todoStr` this state, don't move it out of the scope
   const addAndCleanTodo = () => {
@@ -17,7 +22,7 @@ export default function TodoList() {
   };
 
   return (
-    <TodoStoreProvider>
+    <>
       <input
         value={todoText}
         onChange={(e) => setTodoText(e.target.value)}
@@ -33,9 +38,14 @@ export default function TodoList() {
       </button>
       <ul>
         {todoStore.map((todoText: string, index: number) => (
-          <TodoItem key={index} text={todoText} index={index} />
+          <TodoItem
+            key={index}
+            text={todoText}
+            index={index}
+            deleteTodo={deleteTodo}
+          />
         ))}
       </ul>
-    </TodoStoreProvider>
+    </>
   );
 }

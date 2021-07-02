@@ -1,14 +1,12 @@
 import React from "react";
-import { useTodoStore } from "../todo-hooks";
 
 type TodoItemProps = {
   text: string;
   index?: number;
+  deleteTodo: (index: number) => void;
 };
 
-function TodoItem({ text, index }: TodoItemProps) {
-  const { deleteTodo } = useTodoStore();
-
+function TodoItem({ text, index, deleteTodo }: TodoItemProps) {
   return (
     <li>
       {text}
