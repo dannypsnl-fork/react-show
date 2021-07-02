@@ -3,32 +3,30 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import TodoList from "./TodoList";
-import Editor from "./Editor";
+import MarkdownEditor from "./MDEditor";
 
 const Home = () => <div>Home Page</div>;
 
-const inlineStyle = {
-  display: "inline",
-  maxWidth: "600px",
-  margin: "0 auto",
-};
-
 const Routes = () => (
   <Router>
-    <ul>
-      <li style={inlineStyle}>
+    <ul
+      style={{
+        listStyleType: "circle",
+      }}
+    >
+      <li>
         <Link to="/">Home</Link>
       </li>
-      <li style={inlineStyle}>
+      <li>
         <Link to="/todolist">TodoList</Link>
       </li>
-      <li style={inlineStyle}>
-        <Link to="/editor">Editor</Link>
+      <li>
+        <Link to="/editor">Markdown Editor</Link>
       </li>
     </ul>
 
     <Route exact path="/" component={Home} />
-    <Route path="/editor" component={Editor} />
+    <Route path="/editor" component={MarkdownEditor} />
     <Route path="/todolist" component={TodoList} />
   </Router>
 );

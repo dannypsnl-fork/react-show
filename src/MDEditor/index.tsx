@@ -3,7 +3,7 @@ import showdown from "showdown";
 
 const converter = new showdown.Converter();
 
-export default function Editor() {
+export default function MarkdownEditor() {
   const [editString, setEditString] = useState("");
 
   return (
